@@ -1,0 +1,716 @@
+/* Works / Notes / Lab — Win95 拨号散落界面 */
+
+.notes-page .collage-surv-cams,
+.lab-page .collage-surv-cams,
+.about-page .collage-surv-cams {
+  display: none;
+}
+
+.works-content,
+.orbit-content {
+  justify-content: flex-start;
+  padding-top: clamp(0.3rem, 0.9vw, 0.55rem) !important;
+}
+
+/* 顶栏：导航 + 分类 — 内页 CRT 样式，无 Win95 框 */
+.works-content > .site-header,
+.orbit-content > .site-header {
+  position: relative;
+  z-index: 8;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.45rem;
+}
+
+.works-content > .content-hero,
+.orbit-content > .content-hero {
+  position: relative;
+  z-index: 8;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0.1rem;
+  padding: 0.15rem 0.5rem;
+  text-align: center;
+}
+
+.works-content > .content-hero::after,
+.orbit-content > .content-hero::after {
+  display: none;
+}
+
+.works-page .content-hero .page-desc,
+.notes-page .content-hero .page-desc,
+.lab-page .content-hero .page-desc {
+  margin-bottom: 0.25rem;
+}
+
+.works-content > .works-category-nav,
+.orbit-content > .works-category-nav {
+  position: relative;
+  z-index: 8;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0.2rem;
+  padding: 0;
+}
+
+/* 分类栏 = 导航链接效果 */
+.works-category-nav .filter-btn {
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--text-body-dim);
+  background: transparent;
+  border: none;
+  padding: 0.2rem 0.1rem;
+  text-shadow: 0 0 6px rgba(0, 229, 200, 0.2);
+  cursor: pointer;
+  position: relative;
+  box-shadow: none;
+}
+
+.works-category-nav .filter-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--phosphor, #00e5c8);
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.works-category-nav .filter-btn:hover,
+.works-category-nav .filter-btn.active {
+  color: var(--phosphor-bright, #4dffd6);
+  background: transparent;
+  box-shadow: none;
+  text-shadow: 0 0 8px var(--phosphor-glow, rgba(0, 229, 200, 0.55));
+}
+
+.works-category-nav .filter-btn:hover::after,
+.works-category-nav .filter-btn.active::after {
+  width: 100%;
+}
+
+/* Works / Notes / Lab — 顶栏导航与分类（统一字号排版） */
+.works-page .works-content > .site-header,
+.works-page .orbit-content > .site-header,
+.notes-page .works-content > .site-header,
+.notes-page .orbit-content > .site-header,
+.lab-page .works-content > .site-header,
+.lab-page .orbit-content > .site-header {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.65rem;
+  gap: clamp(0.8rem, 1.9vw, 1.1rem);
+}
+
+.works-page .site-logo,
+.notes-page .site-logo,
+.lab-page .site-logo {
+  font-size: clamp(1.12rem, 2.25vw, 1.4rem);
+  letter-spacing: 0.13em;
+  line-height: 1.34;
+}
+
+.works-page .site-header .site-nav,
+.notes-page .site-header .site-nav,
+.lab-page .site-header .site-nav {
+  gap: clamp(0.95rem, 2.5vw, 1.85rem);
+}
+
+.works-page .site-header .site-nav a,
+.notes-page .site-header .site-nav a,
+.lab-page .site-header .site-nav a {
+  font-size: clamp(0.98rem, 1.68vw, 1.1rem);
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.32rem;
+}
+
+.works-page .site-header .site-nav a::after,
+.notes-page .site-header .site-nav a::after,
+.lab-page .site-header .site-nav a::after {
+  bottom: -5px;
+  height: 1.5px;
+}
+
+.works-page .works-content > .works-category-nav,
+.works-page .orbit-content > .works-category-nav,
+.notes-page .works-content > .works-category-nav,
+.notes-page .orbit-content > .works-category-nav,
+.lab-page .works-content > .works-category-nav,
+.lab-page .orbit-content > .works-category-nav {
+  margin-bottom: 0.35rem;
+  padding: 0.12rem 0;
+  gap: clamp(0.65rem, 1.9vw, 1.35rem);
+}
+
+.works-page .works-category-nav .filter-btn,
+.notes-page .works-category-nav .filter-btn,
+.lab-page .works-category-nav .filter-btn {
+  font-size: clamp(0.98rem, 1.68vw, 1.1rem);
+  letter-spacing: 0.1em;
+  padding: 0.32rem 0.48rem;
+}
+
+.works-page .works-category-nav .filter-btn::after,
+.notes-page .works-category-nav .filter-btn::after,
+.lab-page .works-category-nav .filter-btn::after {
+  bottom: -5px;
+  height: 1.5px;
+}
+
+/* About 页 — 顶栏导航链接间距 */
+.about-page .site-header .site-nav {
+  gap: clamp(0.82rem, 2.1vw, 1.55rem);
+}
+
+.about-page .site-header .site-nav a {
+  padding: 0.1rem 0.22rem;
+}
+
+.about-page .content-hero .page-title {
+  font-size: clamp(1.08rem, 2.2vw, 1.45rem);
+}
+
+.works-content > .crt-screen-footer,
+.orbit-content > .crt-screen-footer {
+  display: none;
+}
+
+/* ===== 轨道散落区（围绕中心男人） ===== */
+.works-orbit,
+.content-orbit {
+  position: relative;
+  width: 100%;
+  max-width: none !important;
+  min-height: clamp(480px, 64vh, 720px);
+  margin: 0;
+  z-index: 6;
+}
+
+.works-orbit__center,
+.content-orbit__center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(200px, 34vw);
+  height: min(300px, 48vh);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ===== Win95 拨号缩略图 ===== */
+.win-work {
+  position: absolute;
+  width: min(290px, 50vw);
+  text-decoration: none;
+  color: #000;
+  transform-origin: center center;
+  transition: filter 0.2s ease, z-index 0s;
+  filter: drop-shadow(5px 6px 0 rgba(0, 0, 0, 0.55));
+}
+
+/* 长方形 / 正方形 / 高长方形 */
+.win-work--shape-wide {
+  width: min(380px, 62vw);
+}
+
+.win-work--shape-wide .win-work__terminal {
+  min-height: 88px;
+}
+
+.win-work--shape-square {
+  width: min(268px, 46vw);
+}
+
+.win-work--shape-square .win-work__terminal {
+  min-height: 138px;
+  max-height: 138px;
+  overflow: hidden;
+}
+
+.win-work--shape-tall {
+  width: min(248px, 42vw);
+}
+
+.win-work--shape-tall .win-work__terminal {
+  min-height: 172px;
+  max-height: 172px;
+  overflow: hidden;
+}
+
+.win-work.hidden {
+  display: none;
+}
+
+.win-work:hover,
+.win-work:focus-visible {
+  z-index: 40 !important;
+  filter: drop-shadow(8px 10px 0 rgba(0, 0, 0, 0.6));
+  transform: rotate(var(--orbit-rot, 0deg)) scale(1.06) translateY(-4px) !important;
+}
+
+.win-work__frame {
+  position: relative;
+  background: #c0c0c0;
+  border: 4px solid;
+  border-color: #dfdfdf #0a0a0a #0a0a0a #dfdfdf;
+  box-shadow:
+    4px 4px 0 #0a0a0a,
+    inset 2px 2px 0 #fff,
+    inset -2px -2px 0 #808080;
+  font-family: 'Tahoma', 'MS Sans Serif', 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+/* Notes — 黄色边框 + 黄条 */
+.notes-page .win-work__frame {
+  border-color: #fff4a8 #9a8200 #9a8200 #fff4a8;
+}
+
+.notes-page .win-work__titlebar {
+  background: linear-gradient(90deg, #9a8200, #ffcc00);
+  color: #1a1400;
+}
+
+.notes-page .win-work__progress-bar {
+  background: linear-gradient(90deg, #9a8200, #ffdd44);
+}
+
+/* Lab — 绿色边框 + 绿条 */
+.lab-page .win-work__frame {
+  border-color: #a8ffcc #0a5028 #0a5028 #a8ffcc;
+}
+
+.lab-page .win-work__titlebar {
+  background: linear-gradient(90deg, #0a5028, #39ff8a);
+  color: #001a0a;
+}
+
+.lab-page .win-work__progress-bar {
+  background: linear-gradient(90deg, #0a5028, #39ff8a);
+}
+
+.win-work__titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 3px 2px 5px;
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: move;
+  user-select: none;
+  touch-action: none;
+}
+
+.win-work.is-dragging {
+  z-index: 200 !important;
+  cursor: grabbing;
+  transition: none;
+  filter: drop-shadow(12px 14px 0 rgba(0, 0, 0, 0.65));
+}
+
+.win-work.is-dragging .win-work__titlebar {
+  cursor: grabbing;
+}
+
+.win-work__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.win-work__chrome {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+  margin-left: 4px;
+  cursor: default;
+}
+
+.win-work__chrome span {
+  display: block;
+  width: 14px;
+  height: 12px;
+  background: #c0c0c0;
+  border: 1px solid;
+  border-color: #fff #808080 #808080 #fff;
+  font-size: 8px;
+  line-height: 10px;
+  text-align: center;
+  color: #000;
+}
+
+.win-work__body {
+  padding: 10px 10px 10px;
+}
+
+.win-work__terminal {
+  background: #0a0a0a;
+  border: 2px inset #404040;
+  padding: 8px 10px;
+  min-height: 102px;
+  font-family: 'Fixedsys', 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.45;
+  position: relative;
+  overflow: hidden;
+}
+
+.win-work__terminal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    rgba(0, 0, 0, 0.35) 2px,
+    rgba(0, 0, 0, 0.35) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.win-work__terminal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.2'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+  animation: winTermStatic 0.12s steps(3) infinite;
+}
+
+@keyframes winTermStatic {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.45; transform: translate(-1px, 0); }
+}
+
+.win-work__terminal p {
+  margin: 0;
+  position: relative;
+  z-index: 3;
+  color: #ccc;
+  text-shadow: none;
+}
+
+.term-dim { color: #888; }
+.term-ok { color: #fff; }
+.term-green { color: #39ff8a; }
+.term-warn { color: #ffcc00; }
+
+.term-blink {
+  color: #39ff8a;
+}
+
+.term-blink::after {
+  content: '█';
+  animation: termCursor 0.9s steps(2) infinite;
+}
+
+@keyframes termCursor {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.win-work__progress-wrap {
+  margin-top: 6px;
+  height: 14px;
+  border: 1px inset #808080;
+  background: #fff;
+  padding: 1px;
+}
+
+.win-work__progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #000080, #1084d0);
+  width: var(--progress, 100%);
+  transition: width 0.4s ease;
+}
+
+.win-work__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  font-size: 10px;
+  color: #000;
+  text-shadow: none;
+}
+
+.win-work__signal {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.win-work__signal span {
+  display: block;
+  width: 3px;
+  background: #39ff8a;
+  border: 1px solid #0a0a0a;
+}
+
+.win-work__signal span:nth-child(1) { height: 4px; }
+.win-work__signal span:nth-child(2) { height: 6px; }
+.win-work__signal span:nth-child(3) { height: 8px; }
+.win-work__signal span:nth-child(4) { height: 10px; }
+
+/* 故障 / 不和谐 */
+.win-work-glitch::before,
+.win-work-glitch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10;
+}
+
+.win-work.is-glitch .win-work-glitch::before {
+  opacity: 0.12;
+  background: rgba(255, 0, 100, 0.15);
+  animation: winRgbGlitch 0.1s steps(3) 3;
+}
+
+.win-work.is-glitch .win-work-glitch::after {
+  opacity: 0.1;
+  background: rgba(0, 255, 255, 0.12);
+  animation: winRgbGlitch 0.12s steps(3) 3 reverse;
+}
+
+.win-work.is-glitch .win-work__frame {
+  animation: winFrameJolt 0.14s steps(4);
+}
+
+.win-work.is-glitch .win-work__titlebar {
+  animation: winTitleSkew 0.12s steps(3);
+}
+
+@keyframes winRgbGlitch {
+  0% { transform: translate(0); clip-path: inset(0 0 70% 0); }
+  33% { transform: translate(-4px, 2px); clip-path: inset(30% 0 40% 0); }
+  66% { transform: translate(3px, -2px); clip-path: inset(60% 0 10% 0); }
+  100% { transform: translate(0); clip-path: inset(0 0 0 0); }
+}
+
+@keyframes winFrameJolt {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(-3px, 2px) skewX(-1deg); }
+  50% { transform: translate(4px, -1px) skewX(0.8deg); }
+  75% { transform: translate(-2px, -2px); }
+}
+
+@keyframes winTitleSkew {
+  0%, 100% { filter: none; }
+  50% { filter: hue-rotate(90deg) contrast(1.3); letter-spacing: 0.08em; }
+}
+
+/* Works 页专属错位 — 不影响 Notes/Lab/About */
+body.works-page:not(.notes-page):not(.lab-page):not(.about-page) .win-work:nth-child(3n) .win-work__frame {
+  border-color: #dfdfdf #0a0a0a #0a0a0a #cfcfcf;
+}
+
+body.works-page:not(.notes-page):not(.lab-page):not(.about-page) .win-work:nth-child(3n+1) .win-work__titlebar {
+  background: linear-gradient(90deg, #000060, #0060a0);
+  color: #fff;
+}
+
+body.works-page:not(.notes-page):not(.lab-page):not(.about-page) .win-work:nth-child(7n) {
+  filter: drop-shadow(5px 4px 0 rgba(0, 0, 0, 0.5)) hue-rotate(-5deg);
+}
+
+/* Notes — 强制黄（覆盖 nth-child 等） */
+.notes-page .win-work .win-work__frame {
+  border-color: #fff4a8 #9a8200 #9a8200 #fff4a8 !important;
+}
+
+.notes-page .win-work .win-work__titlebar {
+  background: linear-gradient(90deg, #9a8200, #ffcc00) !important;
+  color: #1a1400 !important;
+}
+
+.notes-page .win-work .win-work__progress-bar {
+  background: linear-gradient(90deg, #9a8200, #ffdd44) !important;
+}
+
+/* Lab — 强制绿 */
+.lab-page .win-work .win-work__frame {
+  border-color: #a8ffcc #0a5028 #0a5028 #a8ffcc !important;
+}
+
+.lab-page .win-work .win-work__titlebar {
+  background: linear-gradient(90deg, #0a5028, #39ff8a) !important;
+  color: #001a0a !important;
+}
+
+.lab-page .win-work .win-work__progress-bar {
+  background: linear-gradient(90deg, #0a5028, #39ff8a) !important;
+}
+
+/* About — 磷光青 */
+.about-page .win-work .win-work__frame {
+  border-color: #a8fff0 #0a5048 #0a5048 #a8fff0 !important;
+}
+
+.about-page .win-work .win-work__titlebar {
+  background: linear-gradient(90deg, #0a5048, #00e5c8) !important;
+  color: #001a18 !important;
+}
+
+/* About 窗口内容面板 */
+.win-work__panel {
+  background: #0a0a0a;
+  border: 2px inset #404040;
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.win-work__panel--photo {
+  padding: 4px;
+  line-height: 0;
+}
+
+.win-work__panel--photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+  object-position: top center;
+  mix-blend-mode: lighten;
+}
+
+.win-work__panel--text {
+  font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #ccc;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.win-work__panel--text p {
+  margin: 0 0 0.65rem;
+  color: #ccc;
+  text-shadow: none;
+}
+
+.win-work__panel--text .about-intro-quote {
+  color: #39ff8a;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.win-work--shape-tall .win-work__panel--text {
+  max-height: 340px;
+}
+
+.win-work__panel--contact {
+  font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+  font-size: 12px;
+  color: #ccc;
+}
+
+.win-work__panel--contact p {
+  margin: 0 0 0.5rem;
+  color: #888;
+}
+
+.win-work__panel--contact a,
+.win-work__panel--contact .contact-email {
+  display: block;
+  color: #39ff8a;
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  word-break: break-all;
+}
+
+.win-work__panel--contact a:hover {
+  color: #4dffd6;
+  text-decoration: underline;
+}
+
+.about-orbit {
+  min-height: clamp(520px, 70vh, 760px);
+}
+
+/* About 窗口 — 整窗可拖 */
+.about-page .win-work__frame {
+  cursor: grab;
+  touch-action: none;
+}
+
+.about-page .win-work.is-dragging .win-work__frame {
+  cursor: grabbing;
+}
+
+.about-page .win-work__panel--contact a {
+  cursor: pointer;
+  touch-action: auto;
+}
+
+.win-work:nth-child(5n) .win-work__terminal {
+  transform: translateX(1px);
+}
+
+@media (max-width: 768px) {
+  .works-orbit,
+.content-orbit {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .works-orbit__center,
+  .content-orbit__center {
+    display: none;
+  }
+
+  .win-work {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    transform: rotate(var(--orbit-rot, 0deg)) !important;
+  }
+
+  .win-work--shape-wide {
+    max-width: 420px;
+  }
+
+  .win-work--shape-square {
+    max-width: 320px;
+  }
+
+  .win-work--shape-tall {
+    max-width: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-scene-bg::after,
+  .win-work__terminal::after,
+  .term-blink::after {
+    animation: none !important;
+  }
+}

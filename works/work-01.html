@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阈限回廊 · Tzeming Law · Vessel</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/glitch.css">
+  <link rel="stylesheet" href="../css/crt-ui.css">
+</head>
+<body class="crt-page">
+  <div class="noise-layer"></div>
+  <div class="scanlines"></div>
+
+  <div class="crt-monitor-wrap">
+    <div class="crt-monitor">
+      <div class="crt-bezel">
+        <div class="crt-screen">
+          <div class="crt-screen-bg"></div>
+          <div class="crt-scene-bg" aria-hidden="true">
+            <video class="crt-scene-video crt-flicker" autoplay muted loop playsinline>
+              <source src="../assets/works-bg.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="collage-surv-cams" aria-hidden="true">
+            <div class="surv-cam"><div class="surv-cam__body"><div class="surv-cam__lens"></div></div></div>
+            <div class="surv-cam"><div class="surv-cam__body"><div class="surv-cam__lens"></div></div></div>
+            <div class="surv-cam"><div class="surv-cam__body"><div class="surv-cam__lens"></div></div></div>
+            <div class="surv-cam"><div class="surv-cam__body"><div class="surv-cam__lens"></div></div></div>
+          </div>
+          <div class="crt-screen-scanlines"></div>
+          <div class="crt-screen-vignette"></div>
+          <div class="crt-screen-flicker"></div>
+
+          <div class="crt-screen-content page-wrap">
+            <header class="site-header">
+              <a href="../index.html" class="site-logo">Tzeming Law · Vessel</a>
+              <nav class="site-nav">
+                <a href="../index.html">Home</a>
+                <a href="../works.html">Works</a>
+                <a href="../notes.html">Notes</a>
+                <a href="../lab.html">Lab</a>
+                <a href="../about.html">About</a>
+              </nav>
+            </header>
+
+            <a href="../works.html" class="back-link">&lt; 返回作品集</a>
+
+            <h1 class="page-title">阈限回廊</h1>
+            <div class="work-meta" style="text-align: center; margin-bottom: 1.5rem;">
+              <span class="work-tag">装置</span>
+              <span style="font-size: 0.85rem;">2025</span>
+            </div>
+
+            <div class="work-detail-hero">
+              <div class="work-thumb-placeholder" style="font-size: 4rem; color: rgba(66,255,107,0.2);">◇</div>
+            </div>
+
+            <div class="work-detail-body">
+              <p>《阈限回廊》是一件沉浸式装置作品，由三面投影墙面与一条物理通道构成。观众走入通道后，两侧投影呈现无限延伸的空荡走廊 — 荧光灯管、剥落的墙皮、潮湿的地砖 — 所有元素都来自对真实阈限空间的采样与重构。</p>
+
+              <h2>// 概念</h2>
+              <p>「阈限」指向人类学中 ritual 的过渡阶段 — 既不是此、也不是彼的中间状态。这件作品试图将这种心理状态空间化：观众在物理通道中行走，同时在视觉心理上被拉入一个无法抵达尽头的数字走廊。</p>
+
+              <h2>// 技术实现</h2>
+              <p>投影内容使用 Unity 实时渲染，通过 Kinect 捕捉观众位置，动态调整透视消失点 — 使走廊的「深度」随观众移动而产生微妙变化。声音层叠加了 40Hz 的低频嗡鸣与远处滴水声，强化不安感。</p>
+
+              <h2>// 展陈记录</h2>
+              <p>2025 年于某新媒体艺术群展首次亮相，展期 12 天，累计观众约 800 人次。反馈中最常见的描述是「熟悉但想离开」— 这正是预期的情感反应。</p>
+
+              <p style="margin-top: 1.5rem; font-size: 0.85rem;">
+                关联笔记 → <a href="../notes.html">关于梦核美学的边界</a>
+              </p>
+            </div>
+
+            <div class="crt-screen-footer">
+              <p class="crt-quote">"Golden glow, endless snow, welcome home again."</p>
+              <a href="../works.html" class="crt-btn">[ BACK ]</a>
+            </div>
+          </div>
+        </div>
+        <span class="crt-led" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <a href="../index.html">Home</a>
+      <a href="../works.html">Works</a>
+      <a href="../notes.html">Notes</a>
+      <a href="../lab.html">Lab</a>
+      <a href="../about.html">About</a>
+    </div>
+  </nav>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

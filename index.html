@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tzeming Law · Vessel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/glitch.css">
+</head>
+<body class="home-page">
+  <div class="noise-layer"></div>
+  <div class="scanlines"></div>
+
+  <main class="home">
+    <div class="video-bg crt-flicker">
+      <video autoplay muted loop playsinline poster="">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="home-grain-bg" aria-hidden="true"></div>
+    <div class="home-grain-floor" aria-hidden="true"></div>
+    <div class="home-screen-scanlines" aria-hidden="true"></div>
+
+    <div class="floor-hands" aria-hidden="true">
+      <div class="floor-hand floor-hand--left">
+        <span class="floor-hand__sprite"></span>
+      </div>
+      <div class="floor-hand floor-hand--right">
+        <span class="floor-hand__sprite"></span>
+      </div>
+    </div>
+
+    <header class="home-intro">
+      <h1 class="glitch-text" data-text="罗梓茗">Tzeming Law</h1>
+    </header>
+
+    <div class="ascii-stream ascii-stream--tl" aria-hidden="true">
+      <div class="ascii-stream-inner"></div>
+    </div>
+    <div class="ascii-stream ascii-stream--tr" aria-hidden="true">
+      <div class="ascii-stream-inner"></div>
+    </div>
+
+    <nav class="crt-zones" aria-label="CRT 导航">
+      <a href="notes.html" class="crt-zone crt-zone--notes" aria-label="Notes">
+        <span class="crt-label">Notes</span>
+        
+      </a>
+      <a href="works.html" class="crt-zone crt-zone--works" aria-label="Works">
+        <span class="crt-label">Works</span>
+        
+      </a>
+      <a href="about.html" class="crt-zone crt-zone--about" aria-label="About">
+        <span class="crt-label">About</span>
+        
+      </a>
+      <a href="lab.html" class="crt-zone crt-zone--lab" aria-label="Lab">
+        <span class="crt-label">Lab</span>
+        
+      </a>
+    </nav>
+
+    <!-- 像素鼠标箭头：在 css/style.css 的 .crt-pointer--* 中调整 -->
+    <div class="crt-pointers" aria-hidden="true">
+      <div class="crt-pointer crt-pointer--notes"></div>
+      <div class="crt-pointer crt-pointer--works"></div>
+      <div class="crt-pointer crt-pointer--about"></div>
+      <div class="crt-pointer crt-pointer--lab"></div>
+    </div>
+
+    <div class="door-focus" aria-hidden="true"></div>
+
+    <!-- 黑色背影点击区：位置见 css/style.css .silhouette-hit -->
+    <button type="button" class="silhouette-hit" aria-label="Interact with silhouette"></button>
+
+    <div class="win-popups" aria-live="polite">
+      <div class="win-popup win-popup--error" id="popup-error" role="dialog" aria-labelledby="popup-error-title">
+        <div class="win-popup__frame win-popup-glitch">
+          <div class="win-titlebar">
+            <span class="win-title" id="popup-error-title">Error</span>
+            <button type="button" class="win-titlebar-close" data-close="popup-error" aria-label="Close">×</button>
+          </div>
+          <div class="win-body win-body--center">
+            <p class="win-msg win-msg--cn">我不存在</p>
+            <button type="button" class="win-btn" data-close="popup-error">OK</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="win-popup win-popup--warning" id="popup-warning" role="dialog" aria-labelledby="popup-warning-title">
+        <div class="win-popup__frame win-popup-glitch">
+          <div class="win-titlebar">
+            <span class="win-title" id="popup-warning-title">Warning</span>
+            <button type="button" class="win-titlebar-close" data-close="popup-warning" aria-label="Close">×</button>
+          </div>
+          <div class="win-body win-body--warning">
+            <div class="win-body-row">
+              <span class="win-icon-warning" aria-hidden="true"></span>
+              <p class="win-msg">Your existence will now be erased.</p>
+            </div>
+            <button type="button" class="win-btn win-btn--wide" data-close="popup-warning">Finally I'll be free</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="door-markings">
+      <div class="door-exit-stack">
+        <p class="door-exit glitch-text-auto door-exit--back door-exit--back-2" data-text="EXIT?">EXIT?</p>
+        <p class="door-exit glitch-text-auto door-exit--back door-exit--back-1" data-text="EXIT?">EXIT?</p>
+        <button type="button" class="door-exit glitch-text-auto door-exit--close" data-text="EXIT!" aria-label="Close site">EXIT!</button>
+      </div>
+      <div class="door-no-entry">
+        <div class="no-entry-sign" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="home-glitch-burst" aria-hidden="true"></div>
+    <div class="home-glitch-scan" aria-hidden="true"></div>
+   
+  </main>
+
+  <nav class="mobile-nav" aria-label="移动端导航">
+    <div class="mobile-nav-inner">
+      <a href="index.html">Home</a>
+      <a href="works.html">Works</a>
+      <a href="notes.html">Notes</a>
+      <a href="lab.html">Lab</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

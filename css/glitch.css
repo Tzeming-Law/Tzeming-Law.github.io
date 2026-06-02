@@ -1,0 +1,365 @@
+@keyframes crtGlitchScan {
+  0% { transform: translateY(0) skewX(0deg); opacity: 0.6; }
+  33% { transform: translateY(-2px) skewX(0.5deg); opacity: 1; }
+  66% { transform: translateY(1px) skewX(-0.3deg); opacity: 0.8; }
+  100% { transform: translateY(0) skewX(0deg); opacity: 0.6; }
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.glitch-text:hover::before {
+  animation: glitchLayer1 0.3s steps(2) infinite;
+  color: #ff006e;
+  opacity: 0.7;
+  clip-path: inset(20% 0 40% 0);
+}
+
+.glitch-text:hover::after {
+  animation: glitchLayer2 0.3s steps(2) infinite;
+  color: var(--cyan);
+  opacity: 0.7;
+  clip-path: inset(60% 0 10% 0);
+}
+
+/* 自动故障文字（EXIT? 等） */
+.glitch-text-auto {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text-auto::before,
+.glitch-text-auto::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.glitch-text-auto::before {
+  animation: glitchAutoLayer1 0.28s steps(2) infinite;
+  color: #ff006e;
+  opacity: 0.65;
+  clip-path: inset(15% 0 45% 0);
+}
+
+.glitch-text-auto::after {
+  animation: glitchAutoLayer2 0.28s steps(2) infinite;
+  color: var(--cyan);
+  opacity: 0.55;
+  clip-path: inset(55% 0 12% 0);
+}
+
+.no-entry-sign {
+  animation: noEntryGlitch 2.8s steps(5) infinite;
+}
+
+@keyframes glitchAutoLayer1 {
+  0% { transform: translate(-2px, 0); }
+  50% { transform: translate(2px, -1px); }
+  100% { transform: translate(-1px, 1px); }
+}
+
+@keyframes glitchAutoLayer2 {
+  0% { transform: translate(2px, 0); }
+  50% { transform: translate(-2px, 1px); }
+  100% { transform: translate(1px, -1px); }
+}
+
+.glitch-text-auto.door-exit::before {
+  color: #ff8899;
+}
+
+.glitch-text-auto.door-exit::after {
+  color: #cc1122;
+}
+
+@keyframes exitTextFlicker {
+  0%, 88%, 100% { opacity: 1; transform: translate(-50%, -50%); filter: none; letter-spacing: 0.18em; color: var(--exit-color, #ff3344); }
+  90% { opacity: 0.55; transform: translate(-50%, -50%) translateX(-3px); filter: brightness(1.3); }
+  93% { opacity: 1; transform: translate(-50%, -50%) translateX(2px); }
+  96% { opacity: 0.75; transform: translate(-50%, -50%); letter-spacing: 0.28em; }
+}
+
+@keyframes noEntryGlitch {
+  0%, 85%, 100% { transform: scale(1); filter: none; }
+  87% { transform: scale(1.06) translateX(-2px); filter: hue-rotate(-20deg) brightness(1.2); }
+  91% { transform: scale(0.94) translateX(3px); opacity: 0.85; }
+  94% { transform: scale(1.02); box-shadow: 0 0 22px rgba(255, 60, 80, 0.8); }
+}
+
+/* Win95 弹窗 — 显示期间持续故障 */
+@keyframes winPopupGlitch {
+  0% { transform: translate(0, 0); filter: none; }
+  20% { transform: translate(-3px, 1px) skewX(-0.6deg); filter: contrast(1.15) saturate(1.2); }
+  40% { transform: translate(2px, -2px); clip-path: inset(0 2% 0 0); }
+  60% { transform: translate(-2px, 2px) skewX(0.5deg); filter: hue-rotate(-8deg); }
+  80% { transform: translate(3px, 0); opacity: 0.94; }
+  100% { transform: translate(0, 0); filter: none; }
+}
+
+@keyframes winPopupEnterLeft {
+  0% {
+    opacity: 0;
+    transform: translate(28vw, -18vh) scale(0.88);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes winPopupEnterRight {
+  0% {
+    opacity: 0;
+    transform: translate(-28vw, -10vh) scale(0.88);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.win-popup-glitch::before,
+.win-popup-glitch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: multiply;
+}
+
+.win-popup.is-open .win-popup-glitch::before {
+  background: rgba(255, 0, 100, 0.08);
+  animation: winPopupRgb 0.12s steps(3) infinite;
+  opacity: 1;
+}
+
+.win-popup.is-open .win-popup-glitch::after {
+  background: rgba(0, 255, 255, 0.06);
+  animation: winPopupRgb 0.16s steps(3) infinite reverse;
+  opacity: 1;
+}
+
+@keyframes winPopupRgb {
+  0% { transform: translate(0, 0); clip-path: inset(0 0 85% 0); }
+  50% { transform: translate(-4px, 2px); clip-path: inset(40% 0 30% 0); }
+  100% { transform: translate(3px, -2px); clip-path: inset(10% 0 60% 0); }
+}
+
+@keyframes glitchLayer1 {
+  0% { transform: translate(-2px, 0); }
+  50% { transform: translate(2px, -1px); }
+  100% { transform: translate(-1px, 1px); }
+}
+
+@keyframes glitchLayer2 {
+  0% { transform: translate(2px, 0); }
+  50% { transform: translate(-2px, 1px); }
+  100% { transform: translate(1px, -1px); }
+}
+
+.crt-flicker {
+  animation: crtFlicker 5s steps(1) infinite;
+}
+
+@keyframes crtFlicker {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: 0.85; }
+  97% { opacity: 1; }
+  98% { opacity: 0.9; }
+}
+
+.work-card:hover .work-info h3 {
+  animation: textGlitch 0.4s steps(3);
+}
+
+@keyframes textGlitch {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); color: #ff006e; }
+  50% { transform: translateX(2px); color: var(--cyan); }
+  75% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+/* ===== 首页随机故障 ===== */
+.home-glitch-burst,
+.home-glitch-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 7;
+  opacity: 0;
+}
+
+.home-glitch-scan {
+  z-index: 6;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.35) 2px,
+    rgba(0, 0, 0, 0.35) 4px
+  );
+}
+
+.home.is-glitch-slice .video-bg video {
+  animation: homeGlitchSlice 0.12s steps(3) forwards;
+}
+
+.home.is-glitch-rgb .video-bg video {
+  animation: homeGlitchRgb 0.16s steps(3) forwards;
+}
+
+.home.is-glitch-shake {
+  animation: homeGlitchShake 0.18s steps(4) forwards;
+}
+
+.home.is-glitch-text .home-intro h1 {
+  animation: homeGlitchText 0.2s steps(4) forwards;
+}
+
+.home.is-glitch-flash .home-glitch-burst {
+  animation: homeGlitchFlash 0.14s steps(3) forwards;
+}
+
+.home.is-glitch-static .home-glitch-burst {
+  animation: homeGlitchStatic 0.2s steps(5) forwards;
+}
+
+.home.is-glitch-scan .home-glitch-scan {
+  animation: homeGlitchScanBurst 0.22s steps(4) forwards;
+}
+
+@keyframes homeGlitchSlice {
+  0% { transform: translate(0); clip-path: inset(0 0 0 0); }
+  33% { transform: translate(-8px); clip-path: inset(28% 0 62% 0); }
+  66% { transform: translate(10px); clip-path: inset(58% 0 32% 0); }
+  100% { transform: translate(0); clip-path: inset(0 0 0 0); }
+}
+
+@keyframes homeGlitchRgb {
+  0% { filter: none; transform: translate(0); }
+  33% { filter: drop-shadow(3px 0 0 rgba(255, 0, 100, 0.5)) drop-shadow(-3px 0 0 rgba(61, 255, 220, 0.5)); transform: translate(-2px); }
+  66% { filter: drop-shadow(-4px 0 0 rgba(255, 0, 100, 0.6)) drop-shadow(4px 0 0 rgba(61, 255, 220, 0.4)); transform: translate(3px); }
+  100% { filter: none; transform: translate(0); }
+}
+
+@keyframes homeGlitchShake {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-3px, 1px); }
+  40% { transform: translate(4px, -2px); }
+  60% { transform: translate(-2px, -1px); }
+  80% { transform: translate(3px, 2px); }
+}
+
+@keyframes homeGlitchText {
+  0% { transform: translate(0); text-shadow: 0 0 20px var(--crt-glow); color: var(--cyan); }
+  25% { transform: translate(-3px, 1px); color: #ff006e; text-shadow: 2px 0 #ff006e, -2px 0 var(--cyan); }
+  50% { transform: translate(3px, -1px); color: var(--cyan); clip-path: inset(10% 0 40% 0); }
+  75% { transform: translate(-2px, 0); color: #fff; }
+  100% { transform: translate(0); text-shadow: 0 0 20px var(--crt-glow); color: var(--cyan); }
+}
+
+@keyframes homeGlitchFlash {
+  0% { opacity: 0; background: transparent; }
+  40% { opacity: 0.35; background: rgba(200, 255, 220, 0.12); }
+  70% { opacity: 0.2; background: rgba(255, 255, 255, 0.06); }
+  100% { opacity: 0; background: transparent; }
+}
+
+@keyframes homeGlitchStatic {
+  0% { opacity: 0; background: transparent; }
+  20% { opacity: 0.5; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"); mix-blend-mode: overlay; }
+  100% { opacity: 0; background: transparent; }
+}
+
+@keyframes homeGlitchScanBurst {
+  0% { opacity: 0; }
+  30% { opacity: 0.85; transform: translateY(0); }
+  60% { opacity: 0.6; transform: translateY(6px); }
+  100% { opacity: 0; transform: translateY(0); }
+}
+
+/* ===== 黄色箭头随机故障 ===== */
+.crt-pointer.is-pointer-glitch-jolt {
+  animation: pointerGlitchJolt 0.13s steps(3) forwards, pointerBob 1.6s ease-in-out infinite;
+}
+
+.crt-pointer.is-pointer-glitch-flash {
+  animation: pointerGlitchFlash 0.16s steps(3) forwards, pointerBob 1.6s ease-in-out infinite;
+}
+
+.crt-pointer.is-pointer-glitch-rgb {
+  animation: pointerGlitchRgb 0.14s steps(3) forwards, pointerBob 1.6s ease-in-out infinite;
+}
+
+.crt-pointer.is-pointer-glitch-wobble {
+  animation: pointerGlitchWobble 0.18s steps(4) forwards, pointerBob 1.6s ease-in-out infinite;
+}
+
+.crt-pointer.is-pointer-glitch-vanish {
+  animation: pointerGlitchVanish 0.22s steps(5) forwards, pointerBob 1.6s ease-in-out infinite;
+}
+
+@keyframes pointerGlitchJolt {
+  0% { translate: 0 0; background-color: #ffdd00; }
+  33% { translate: -7px 4px; background-color: #ff9900; filter: drop-shadow(0 0 10px rgba(255, 120, 0, 0.8)); }
+  66% { translate: 6px -3px; background-color: #ffff66; filter: drop-shadow(2px 0 0 rgba(255, 0, 100, 0.6)); }
+  100% { translate: 0 0; background-color: #ffdd00; filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.8)) drop-shadow(0 0 8px rgba(255, 221, 0, 0.45)); }
+}
+
+@keyframes pointerGlitchFlash {
+  0%, 100% { opacity: 1; background-color: #ffdd00; }
+  25% { opacity: 0.1; background-color: #ffffff; filter: drop-shadow(0 0 14px #fff); }
+  50% { opacity: 1; background-color: #ff006e; }
+  75% { opacity: 0.3; background-color: #ffdd00; }
+}
+
+@keyframes pointerGlitchRgb {
+  0%, 100% {
+    background-color: #ffdd00;
+    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.8)) drop-shadow(0 0 8px rgba(255, 221, 0, 0.45));
+  }
+  33% {
+    background-color: #ffff00;
+    filter: drop-shadow(3px 0 0 rgba(255, 0, 120, 0.7)) drop-shadow(-3px 0 0 rgba(61, 255, 220, 0.6));
+  }
+  66% {
+    background-color: #ffcc00;
+    filter: drop-shadow(-4px 1px 0 rgba(255, 0, 120, 0.8)) drop-shadow(4px -1px 0 rgba(61, 255, 220, 0.5));
+  }
+}
+
+@keyframes pointerGlitchWobble {
+  0% { transform: rotate(var(--pointer-rotate)); }
+  25% { transform: rotate(calc(var(--pointer-rotate) + 14deg)) scale(1.08); }
+  50% { transform: rotate(calc(var(--pointer-rotate) - 10deg)) scale(0.92); }
+  75% { transform: rotate(calc(var(--pointer-rotate) + 6deg)) scale(1.04); }
+  100% { transform: rotate(var(--pointer-rotate)); }
+}
+
+@keyframes pointerGlitchVanish {
+  0%, 100% { opacity: 1; }
+  20% { opacity: 0; }
+  40% { opacity: 0.8; }
+  60% { opacity: 0; }
+  80% { opacity: 1; }
+}
